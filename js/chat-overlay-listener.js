@@ -5,6 +5,8 @@
 
 //Function to process a payload send by Amelia, the Amelia url is tasken from the iframe source
 function receiveMessage(e, data) {
+    console.log(e)
+    console.log(data)
     var iframeElem = document.getElementById('receiver');
     var ameliaurl = new URL(iframeElem.src);
     var baseurl = "https://" + ameliaurl.hostname;
@@ -97,6 +99,14 @@ function sendAttributes(sAtt) {
 function resetconversation() {
     console.log("here 123")
     myJSON = { 'actionType': 'resetConversation', 'actionData': 'true' };
+    sendToAmelia(myJSON);
+    var iframe = document.getElementById('receiver');
+    iframe.src = iframe.src;
+}
+
+function endconversation() {
+    console.log("here 12")
+    myJSON = { 'actionType': 'endConversation', 'actionData': 'true' };
     sendToAmelia(myJSON);
     var iframe = document.getElementById('receiver');
     iframe.src = iframe.src;
