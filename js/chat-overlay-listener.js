@@ -95,6 +95,7 @@ function sendAttributes(sAtt) {
 
 //can be called to reset the conversation
 function resetconversation() {
+    console.log("here 123")
     myJSON = { 'actionType': 'resetConversation', 'actionData': 'true' };
     sendToAmelia(myJSON);
     var iframe = document.getElementById('receiver');
